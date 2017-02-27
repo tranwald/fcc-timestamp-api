@@ -16,6 +16,7 @@ const getDateObject = (date) => {
     };
 };
 
+app.set('port', process.env.PORT || 8080)
 app.get('/:date', (req, res) => {
     res.status(200)
         .json(getDateObject(req.params.date));
@@ -29,4 +30,4 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(app.get('port'));
